@@ -1,0 +1,43 @@
+LOOPING STATEMENTS
+===================
+
+When we have to Perform certain Operations Repeatedly is Looping.
+
+Looping Statements are three types:
+                                   i) For loop.
+                                   ii) While loop.
+                                   iii) Do While loop.
+
+1.For Loop:
+============
+
+for(initialization(int i=0); Condition(i<=25); increment/decrement(i++)) {
+System.out.println("------------------");
+}
+
+2.While Loop:
+==============
+
+initialization(int i=0);
+
+while (condition(i<=25)) {
+
+System.out.println("------------------");
+increment/decrement(i++);	
+
+}
+
+3.Do While Loop:
+=================
+
+initialization(int i=0);
+
+do {
+	 System.out.println("------------------");
+	 increment/decrement(i++);
+	 	
+		} while (condition(i<=25));
+
+
+                                   
+                                   

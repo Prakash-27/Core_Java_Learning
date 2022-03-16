@@ -1,0 +1,257 @@
+MAP:
+====
+Map - Map is not a part of collection Interface.
+Map and its implementation Classes.
+MAP(I) --> HASHMAP(C) --> LINKEDHASHMAP(C).
+MAP(I) --> SORTEDMAP(I) --> NAVIGABLEMAP(I) --> TREEMAP(C).
+
+Nature of Maps:
+===============
+MAP(I) is NOT a child Interface of  Collection(I) and hence it is not Considered to be a True Collection.
+It Represents Data in KEY-VALUE Pairs.
+Duplicate Key are NOT Allowed in MAP.
+Duplicate Values are Allowed
+Examples:
+         Employee#(Key) -> Employee Name(Value)
+         PinCode(Key) -> Town or City Name.
+               
+===============================================================================================================================
+HASHMAP:
+========
+Points About HashMap:
+---------------------
+HASHMAP(I) is implementation Class of MAP(I).
+Duplicate Key are NOT Allowed in MAP But Duplicate Values are Allowed.
+Uses a technique called Hashing to Store elements.
+Only one NULL Key is Allowed.
+The Order is not Presereved as it uses Hashing. So we can't Predict the retrieval order of the elements inserted.
+A Value of a Map can only be fetched using it's KEY.
+It's not Syncronized. So if it has to be used on Multithreading environment, it has to be Syncronized explicitly.
+Initial Capacity: 16 and Factor Load: .75
+
+HashMap Methods:
+================
+//To insert an element PUT Method is used.
+		hashMap.put(1, "Monday"); //ENTRY means Key-Value Pair is called ENTRY SET in HASHMAP.
+		hashMap.put(2, "Tuesday");
+		hashMap.put(3, "Wednesday");
+		hashMap.put(4, "Thurday");
+		hashMap.put(5, "Friday");
+		hashMap.put(6, "Saturday");
+		hashMap.put(7, "Sunday");
+		System.out.println("Weeks Maps: " + hashMap);
+		
+//To make a copy of the existing map.
+		Map<Integer, String> duplicateHashMap = new HashMap<Integer, String>();
+		duplicateHashMap.putAll(hashMap);
+		System.out.println("Duplicate Map: " + duplicateHashMap);
+		
+//To delete the Map contents
+		duplicateHashMap.clear();
+		System.out.println("After Clearing: " + duplicateHashMap);
+		
+//To check if the key is present or Not in the Map.
+		System.out.println("Does this Map has Key 1: " + hashMap.containsKey(1));
+		
+//To check if the Value is present or Not in the Map.
+		System.out.println("Does this Map has Value Sunday: " + hashMap.containsValue("Sunday"));
+		
+//Clone the Map
+		System.out.println("Cloned Map: " + hashMap.clone());
+		
+//Check if the Map isEmpty or Not.
+		System.out.println("Is Empty or Not?: " + hashMap.isEmpty());
+		
+//Fetch the set of Keys in the Map (NOTE: Here it's not a List of Keys, it's Set of Keys.)
+//Because List will allow duplicate but Set won't. Keys Should be Unique.
+		System.out.println("Key Set: " + hashMap.keySet());
+		
+//Fetch a Value
+		System.out.println(hashMap.get(4));
+		
+//Fetch all the Values
+		System.out.println("All Values: " + hashMap.values());
+		
+//Entry Set
+		System.out.println(hashMap.entrySet());
+		
+//Replace the Value and Key.
+		hashMap.replace(7, "Funday");
+		System.out.println("Replacing Sunday to Funday: " + hashMap);
+		
+//Remove the value in Map.
+		hashMap.remove(6, "Saturday");
+		System.out.println("Remove the Saturday using Key-Value Pair in Map: " + hashMap); 
+		
+		//HashMap
+		//The Order is not Presereved as it uses Hashing, So we can't Predict the retrieval order of the elements inserted.
+		HashMap<String, String> hashMap = new HashMap<String, String>();
+		hashMap.put("CSK ", " MS Dhoni");
+		hashMap.put("RCB ", " Virat Kholi");
+		hashMap.put("MI ", " Rohit Sharma");
+		
+		//In HashMap Normal Key and null Key are same, the Duplicted Key can overrite the value.
+		hashMap.put(null, "Lionel Messi");
+		hashMap.put(null, "Christiana Ronaldo");
+        O/P: {null Christiana Ronaldo}
+        
+		//In HashMap Normal values and null values are same, but the values are not Overriten.
+		hashMap.put("KKR", null);
+		hashMap.put("DC", null);
+          
+		System.out.println("HashMap Ipl Teams Name and Captains Name: " + hashMap);
+		O/P: {KKR null, DC null}
+===============================================================================================================================
+LINKEDHASHMAP:
+==============
+Points About LinkedHashMap:
+---------------------------
+HASHMAP(I) is implementation Class of MAP(I).
+Duplicate Key are NOT Allowed in MAP But Duplicate Values are Allowed.
+Uses a technique called Hashing to Store elements.
+Only one NULL Key is Allowed.
+The Order is Presereved, So we can Predict the retrieval order of the elements inserted.
+A Value of a Map can only be fetched using it's KEY.
+It's not Syncronized. So if it has to be used on MultiThreading environment, it has to be Syncronized explicitly.
+Initial Capacity: 16 and Factor Load: .75
+
+        //The Order is Presereved, So we can Predict the retrieval order of the elements inserted.
+		LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<String, String>();
+		linkedHashMap.put("CSK ", " MS Dhoni");
+		linkedHashMap.put("RCB ", " Virat Kholi");
+		linkedHashMap.put("MI ", " Rohit Sharma");
+
+		//In LinkedHashMap Normal Key and null Key are same, the Duplicted Key can overrite the value.
+		linkedHashMap.put(null, "Lionel Messi");
+		linkedHashMap.put(null, "Christiana Ronaldo");
+		O/P: {null Christiana Ronaldo}
+
+		//In LinkedHashMap Normal values and null values are same, but the values are not Overriten.
+		linkedHashMap.put("KKR", null);
+		linkedHashMap.put("DC", null);
+       
+		System.out.println("LinkedHashMap Ipl Teams Name and Captains Name: " + linkedHashMap);
+		O/P: {KKR null, DC null}
+        
+												
+===============================================================================================================================
+TREEMAP:		
+========
+Points About TreeMap:
+---------------------
+TREEMAP(C) is implementation class for MAP(I)
+Duplicate Keys are NOT Allowed but Duplicate values are Allowed.
+NULL Key is NOT Allowed.
+The Element will be retrieved on natural Sorting Order.
+
+TreeMap<String, String> treeMap = new TreeMap<String, String>();
+		//TreeMap will give Natural Sorting Order. 
+		//Because it will implements Comparable interface which mean it will compare the Districts and null so it not able to compare.
+		//It will not run even though the single line of program treeMap.put(null, "Districts"); is there.
+		//It will Throw NullPointer Exception.
+		//treeMap.put(null, "Districts");
+		treeMap.put("Erode", "Districts");
+		treeMap.put("Chennai", "Districts");
+		treeMap.put("ThiruvanaMalai", "Districts");
+		treeMap.put("Kanchipuram", "Districts");
+		treeMap.put("VilluPuram", "Districts");
+		
+		//If we try to add or put Duplicate Key it will Overrite the Given value.
+		treeMap.put("Districts", "Coimbatore");
+		treeMap.put("Districts", "Vellore");
+		
+		System.out.println("Some District's in TamilNadu: " + treeMap);
+
+===============================================================================================================================
+HashTable:
+==========
+Hashing Transformation of a String of Characters(Text) to a shorted fixed-length value that Represents Original String. 
+A Shorter value help in indexing and faster Searches.
+
+In Java Every Object has a method public int hashcode() that will return a hash value for given Object.
+
+hashMap.put("King","99");
+hashMap.put("Ford","110");
+hashMap.put("Blake","10");
+hashMap.put("Jones","99");
+hashMap.put("Smith","10");
+hashMap.put("Ward","99");                    ----   ------------------------
+                                             |0 |-->(Jones|70772256|99|null)
+                                             ----   ------------------------
+                                             |1 |
+Java HashMap allows null Key, Which always   ----   ------------------------
+goes to index = 0 as hash of null is 0.      |2 |-->(Clark|64205538|90|null)
+                                             ----   ------------------------
+                                             |3 |    Collision is Occuring
+                                             ----    ----------------------   ------------------------   ----------------------
+                                             |4 |-->(King|2306996|100|null)-->(Blake|63281940|10|null)-->(Ward|2656852|99|null)
+                                             ----    ----------------------   ------------------------   ----------------------
+                                             |5 |
+                                             ----   ------------------------
+                                             |6 |-->(Smith|79019862|10|null)
+                                             ----   ------------------------
+                                             |7 |
+                                             ----
+                                             |8 |
+                                             ----
+                                             |9 |
+                                             ----   -----------------------
+                                             |10|-->(Ford|2163866|110|null)
+                                             ----   -----------------------
+                                             |11|
+                                             ----
+                                             |12|
+put(K k , V v)                               ----
+  hash(k)                                    |13|       
+    index = hash & (n - 1)                   ----                      
+                                             |14|
+n = 16                                       ----
+                                             |15|
+                                             ----
+                                             |16|
+                                             ----      
+What the big deal in java 8 HashMap is:
+=======================================
+In java 8 when we have to many unequal Keys which gives same hashcode(index) - when the number of items in a hash bucket grows
+beyond certain Threshold(TREEIFY_THRESHOLD = 8), Content of that bucket Switches from using LinkedList of Entry object to a 
+Balance Tree. This theoretically improves the worst-case.
+
+Performance from 0(n) to 0(log n).
+
+Balance Search tree, where left nodes have lesser weight(HashCode or Comparable result) for the keys involved.
+
+                                                     50
+                                                     /\
+                                                    /  \
+                                                   /    \
+    (i.e Left hand side is Lesser value Side)    17      76   (i.e Right hand side is Greater value Side)
+                                                 /\      /
+                                                /  \    /
+                                               /    \  54
+                                              9      23 
+                                           
+What is Hash Table?
+====================
+Hash table is a data structure.
+Offers fast insertion and search.
+They are limited in size because they based on arrays.
+Can be Resized but it should avoided.
+They are Hard to Order.
+
+HashTables & HashFunctions:
+===========================
+Key values are assigned to elements in the Hash Table using a Hash Function.
+A Hash function helps calculate the best index an item Should go in.
+Index must be small enough for the arrays Size
+Don't Overwrite other data in the Hash Table
+
+Hash Functions:
+===============
+A Hash Functions Job is to store values in an array with a limited size.
+It does it in a way that the array doesn't need to be Searched Through to find it 
+Enter values in any Order.
+Be able to find them using a calculation instead of searching through the array.
+Hash Functions = Speed
+
+
+						 

@@ -1,0 +1,713 @@
+JAVA COLLECTIONS:
+=================
+Collection as a Group of Individual Object.
+
+JAVA COLLECTION HEIRARCHY:
+==========================
+                                                       -------------------    iterator()     -----------------  
+                                                       |   Iterable<E>   |-----------------> |  Iterable<E>  |
+                                                       -------------------                   -----------------
+                                                                /\
+                                                                | 
+                                                       -------------------        
+                                                       |  Collection<E>  |
+                                                       -------------------
+                                                                /\
+                                                                |
+                                       ----------------------------------------------------                       
+                                       |                        |                          |
+                                 -------------           -----------------         ----------------         ------------
+    Interfaces ----------------> |  List<E>  |           |     Set<E>    |         |   Queue<E>   |         | Map<K,V> |
+                                 -------------           -----------------         ----------------         ------------
+                                      |                         /\                        /\                     /\
+                                      |                         |                         |                      |
+                                      |                  -----------------         ----------------       ---------------- 
+                                      |                  |  SortedSet<E> |         |   Deque<E>   |       |SortedMap<K,V>|
+                                      |                  -----------------         ----------------       ----------------
+                                      |                         /\                      |                        /\
+                                      |                         |                       |                        |
+                                      |                  ------------------             |              ---------------------
+                                      |                  |NavigationSet<E>|             |              | NavigableMap<K,V> |
+                                      |                  ------------------             |              ---------------------
+                                      \/                        \/                      \/                    \/
+   Implementation --------------> ArrayList                   HashSet              PriorityQueue            HashMap
+       Classes                    LinkedList                  LinkedHashSet        ArrayDeque               HashLinkedMap
+                                  Stack                       TreeSet              LinkedList(Deque)        HashTable
+                                  Vector                                                                    TreeMap
+                                  
+Legacy classes - List<E> Stack,Vector (this two classes are in java since 1.2 version onwards But this two classes are out dated.)
+
+Map - Map is not a part of collection Interface.
+
+Here we are not going to see the Queue PART.
+
+1.JAVA GENERIC'S:
+================
+1.0 <> - This is Java Generic's, in this generic what we add in that bracket only we can access it.
+
+eg: List<String> arrayList = new ArrayList<String>();
+
+1.1 If we want to add some other Data type in without Generic's(arrayList.add(1);)mean it will not accept.
+    because we are assiging one data type in Generic's so can't able to access another Data type in same Object.
+    We can Assign multiple Data type in one Object in that case we have to use Heterogeneous object. 
+
+eg:List<String> arrayList = new ArrayList<String>();
+    arrayList.add(1); --> here '1' is Integer Data type so it will not add to String List.
+    It only accept String Methods in this case. 
+    
+1.2 Unwanted Data type are not going to add in Generic's.
+
+2.ARRAYLIST<>:
+============
+2.0 List<String> arrayList = new ArrayList<String>(); --> This type is Dynamic Polymorphism. 
+Because ParentClass Reference = new ChildClass Object;
+
+2.1 ArrayList will maintain INSERTION ORDER.
+2.2 ArrayList will also allow Duplication.
+    
+ List<String> arrayList = new ArrayList<String>();
+ arrayList.add("BMW");                                     arrayList.add("Bugatti");
+ arrayList.add("BENZ");                                    arrayList.add("BENZ");
+ arrayList.add("BentLey");                                 arrayList.add("BentLey");
+ arrayList.add("Bugatti");                                 arrayList.add("BMW"); 
+ arrayList.add("Bugatti"); //Duplication                    arrayList.add("BMW");
+ 
+ //add(int index) add(String string) --> add method is overloading method we can use by different parameter by our purpose.
+ 
+ System.out.println(arrayList);
+ INSERTION ORDER:
+ O/P: [BMW, BENZ, BentLey, Bugatti, Bugatti]                        [Bugatti, BENZ, BentLey, BMW, BMW]
+ 
+2.3 How to retrive the value in ArrayList:
+==========================================
+Get Method:
+===========
+By using get(2) method - get method will call the added value of the arryList on the basic's of index(0,1,2).
+                        But O/P print on screen will be in name. O/P: BentLey
+
+eg: arrayList.get(0);
+    System.out.println(arrayList.get(0));
+    
+    O/P: BMW                                                Bugatti    
+    
+IndexOf and LastIndexOf Method:
+===============================    
+eg: arrayList.indexOf("BENZ"); - this method will receive O/P in index values O/P: 1. 
+                                 Because BENZ in index no '1'.
+                                 
+eg: arrayList.indexOf("Aston Martin"); - this element is not in the arrayList.add means it will print '-1' in console.                               
+                                          
+eg  arrayList.lastIndexOf("Bugatti"); - ArrayList will have the duplication method so that it will give the last Duplication name.
+                                        Output of the Bugatti is 4.
+O/P: 4
+
+To Copy ArrayList to AnotherarrayList:
+====================================== 
+eg: List<String> Another_arrayList = new ArrayList<String>();
+    Another_arrayList.addAll(arrayList);  --> To copy the arrayList Object to another Object by using addAll() Method.
+    System.out.println(Another_arrayList);
+    O/P: [BMW, BENZ, BentLey, Bugatti, Bugatti]
+    
+    Another_arrayList.clear();--> This method will clear the all added object in Another_arrayList Object Thus the array is Empty. 
+    O/P: []
+
+Remove Method:
+==============
+eg: arrayList.remove(0);    
+    System.out.println(arrayList.remove(0));--> O/P:[BENZ, BentLey, Bugatti, Bugatti] It is removed 'BMW' by indexes of index value.    
+    
+//remove(int index) remove(String string) --> remove method is overloading method we can use by different parameter by our purpose.
+
+Add(null) Method:
+================= 
+eg: arrayList.add(null); O/P: [BENZ, BentLey, Bugatti, Bugatti, null]    
+// null is also can add in arrayList.
+
+Set(int index , String element) Method:
+=======================================
+eg: arrayList.set(0,"Mitsubishi"); --> O/P: [Mitsubishi, BENZ, BentLey, Bugatti, Bugatti, null]
+// Here set(int index , String element) this index 0 will remove 'BMW' and insert 'Mitsubishi' to the arrayList.
+
+isEmpty Method:
+===============
+eg: arrayList.isEmpty(); --> O/P: false
+// isEmpty method return type is boolean so it give the output in true/false.
+// In our case arrayList is have array of elements then it will print false on console.
+
+ITERATE:
+========
+FOR EACH:
+========
+for(String string : arrayList){
+     System.out.println("Using for each: " + string);
+}
+
+FOR LOOP:
+=========
+for(int i =0; i<arrayList.size(); i++){
+     arrayList.get(i).getText();
+     System.out.println("Using for Loop: " + arrayList.get(i).getText());
+}
+ 
+ListIteratorMethod:
+===================
+ListIterator<String> list_iterator = arrayList.listIterator();
+//ListIterator is Interface so we can't create Object for that, so we write arrayList.listIterator().
+
+ListIterator Forward Traversing:
+--------------------------------
+
+while(list_iterator.hasNext()){
+    System.out.println(list_iterator.next());
+}
+
+O/P:Mitsubishi 
+    BENZ 
+    BentLey
+    Bugatti 
+    Bugatti 
+    null  
+    
+ListIterator Reverse Traversing:
+--------------------------------
+
+while(list_iterator.hasPrevious()){
+    System.out.println(list_iterator.previous());
+}
+
+O/P:null
+    Mitsubishi
+    BENZ 
+    BentLey
+    Bugatti
+    Bugatti 
+    
+ITERATOR: 
+=========
+In Iterator Forward direction will possible, But in ListIterator forward and reverse direction will possible.
+
+Iterator<String> iterator = arrayList.iterator();    
+     
+while(iterator.hasNext()){
+    System.out.println(iterator.next());
+}     
+=================================================================================================================================     
+ARRAYLIST is NON - Synchronized. It should not be used in Multi-Threading environment without explicit Synchronization.
+ARRAYLIST - NON - Synchronized.
+ARRAYLIST - NO THREAD SAFE.
+
+adding an element to the List when traversing through it
+will get Concurrent Modification exception.
+This is happening Because when a Thread is Trying to read the element from the list another thread is trying to add or remove
+an element from.
+
+for(String string : arrayList){
+     System.out.println("Using for each: " + string);
+     arrayList.add("Tea"); 
+}
+// It will throw ConcurrentModificationException.
+
+ConcurrentModificationException:
+------------------------------- 
+-->Thread Process is While Reading the Operation in for Loop if we add (or) remove some string 
+or other data type methods on operation iterating method it will throw this Exception.
+  
+CopyOnWriteArrayList:
+=====================
+CopyOnWriteArrayList<String> synCal = new CopyOnWriteArrayList<String>();
+
+//Adding elements to Synchronized ArrayList
+syncal.add("Pen");
+syncal.add("NoteBook");
+syncal.add("Ink");
+
+Iterator<String> syncalIterator = syncal.iterator();
+
+while(syncalIterator.hasNext()){
+    System.out.println(syncalIterator.next());
+    syncal.add("Eraser");
+    syncal.remove("Eraser");
+}
+
+System.out.println("Final List: " + synCal);
+
+IMPORTANT POINTS:
+=================
+1. ArrayList (C) is One of the classes provides Implementation for the List(I).  
+      
+2. Duplicate values are Allowed.
+
+3. Insertion order is Maintained.
+
+4. Underlying DS is resizeable Array or Growable Array.
+
+5. Can insert Heterogeneous Objects (If Generic's are not used).
+eg:
+---
+//Heterogeneous Objects will Import all the packages for the Interfaces and Class.
+//here we not using <> java Generic.
+List list = new ArrayList();
+list.add(1);
+list.add("String");
+System.out.println(list);
+
+6. ArrayList is not Synchronized.
+
+7. It is Not a Thread Safe.
+
+8. Default capacity - 10
+
+9. Fill Ratio Or Load Factor: 1 or 100%
+
+10. Growth Rate: current_size + current_size/2
+eg: 10 + 10/2;
+    10 + 5 = 15;
+    Growth Rate: 15 
+    
+eg:
+--- 
+List list = new ArrayList();
+         ---------------
+list---->|1|2|3|4|5|6|7|
+         ---------------
+If we have to add 8 to this list
+         --------------- 
+list-\/->|1|2|3|4|5|6|7|      size is 7 |New List = size + size/2  
+     /\  ---------------                |         =  7  +  3.4
+          | | | | | | |                 |         =  10.4
+         \/\/\/\/\/\/\/                 |         =  10
+         ---------------------
+list---->|1|2|3|4|5|6|7|8| | |
+         ---------------------  
+      
+11. implements RandomAccess, Serializable(This is a Network which is able to Transmit Data Serially)
+    and Cloneable(We can Make a Clone for Interface) Interfaces.
+
+12. Best Suited for search Operations and performs worst on insertion and deletion.
+
+eg:
+--- 
+Why array List is not suitable for Insertion & Deletion.
+
+Index---> 0 1 2 3 4 5 6
+         ---------------
+         |1|2|3|4|5|6|7|
+         --------------- 
+If we are going to insert one element at position (index = 2)
+         
+Index---> 0 1  2  3 4 5 6
+         -----------------
+         |1|2|new|4|5|6|7|
+         ----------------- 
+   Insertion -> -> -> -> ->
+              <- <- <- <- <- Removal
+   For this one insertion Four Displacements Happend.
+   
+   Same in the case of Removal. 
+
+=================================================================================================================================
+LINKEDLIST:
+===========
+i)LinkesList is opposite to ArrayList. 
+ii)Because here Insertion and Deletion Operation are Best Suited Operation for LinkedList.
+iii)Performs Worst on Search and Retrieving Operation,Unlikely ArrayList, This is not the best Retrieving the data.
+iv)All the collections implements Serializable and Cloneable Interfaces.
+v)LinkedList is also implements those Interfaces But Not RandomAccess Interface.
+
+vi)LinkedList is implemented using Doubly linked list. This is best suited for insertion and deletion operations.
+vii)Unlike ArrayList, this is not the best for retrieving the data.
+viii)All the collections implements Serializable and cloneable Interfaces.
+iX)LinkedList also implements those Interfaces but not RandomAccess Interface.
+
+LinkedList performs the worst if the operation is retrieval of data.
+Hence if our requirement is to fetch data, we should use ArrayList.
+But LinkedList is the best choice if we have requirements of adding and 
+removing data very often. In this case we should avoid ArrayList
+
+
+LNKEDLIST OPERATION METHODS EXAMPLES:
+=====================================
+
+//create a simple Linked List.
+
+LinkedList<Integer> linkedList = new LinkedList<Integer>();
+linkedList.add(2);
+linkedList.add(3);
+linkedList.add(4);
+linkedList.add(4);
+
+System.out.println("Linked List: " + linkedList);
+
+1.AddFirst(0) Method:
+====================
+//Add an element to a First Position.
+
+linkedList.addFirst(1);
+
+System.out.println("Linked List After Adding Last: " + linkedList);
+
+2.AddLast(0) Method:
+====================
+//Add an element at Last.
+
+linkedList.addLast(5);
+
+System.out.println("Linked List After Adding Last: " + linkedList);
+
+3.getFirst() Method:
+====================
+//Get the First value.
+
+System.out.println("First Value: " + linkedList.getFirst());
+
+4.get(0) Method:
+================
+//Get the First value using index(0) Position.
+
+System.out.println("First Value: " + linkedList.get(0));
+
+System.out.println("First Value: " + linkedList.get(3));
+
+5.removeFirst() Method:
+=======================
+//remove First value in linkedList. 
+
+System.out.println("Remove First: " + linkedList.removeFirst());
+System.out.println(linkedList);
+
+6.removeLast() Method:
+======================
+//remove Last value in linkedList.
+
+System.out.println("Remove Last: " + linkedList.removeLast());
+System.out.println(linkedList);
+
+7.poll() and pollFirst() Method:
+================================
+//poll method delete the first element in the List.
+ 
+System.out.println(linkedList.poll());
+System.out.println(linkedList);
+
+System.out.println(linkedList.pollFirst());
+System.out.println(linkedList);
+
+8.pollLast() Method:
+====================
+//pollLast delete the last.
+
+linkedList.pollLast();
+System.out.println(linkedList.pollLast());
+
+9.remove() Method:
+==================
+//remove method delete the first element.
+linkedList.remove();
+System.out.println(linkedList.remove());
+
+10.add() Method:
+================
+linkedList.addFirst(2);
+linkedList.add(3);
+linkedList.add(4);
+linkedList.add(5);
+linkedList.add(6);
+linkedList.add(7);
+linkedList.add(8);
+linkedList.add(9);
+
+11.removeFirstOccurrence(2) Method:
+===================================
+linkedList.removeFirstOccurrence(2);
+System.out.println("After Removing the First Occurrence of 2: " + linkedList.removeFirstOccurrence(2));
+
+12.removeLastOccurrence(6) Method:
+===================================
+linkedList.removeLastOccurrence(6);
+System.out.println("After Removing the Last Occurrence of 6: " + linkedList.removeFirstOccurrence(6));
+
+ITERATION OF LINKEDLIST:
+========================
+
+1.Iteration of LinkedList with simple for Loop:
+-----------------------------------------------
+public void iterateLinkedListWithSimpleFor() {
+
+LinkedList<String> linkedList = new LinkedList<String>();
+linkedList.add("a");
+linkedList.add("b");
+linkedList.add("c");
+linkedList.add("d");
+
+System.out.println("Simple for Loop");
+
+for(int index = 0; index<linkedList.size(); index++) {
+
+System.out.println("Elements in the LinkedList are: " + linkedList.get(index));
+     }
+     System.out.println("------------------------------------------------------");
+}
+
+
+
+
+2.Iteration of Linked List with Advanced For Each Loop:
+-------------------------------------------------------
+public void iterateWithAdvancedForEach() {
+
+LinkedList<String> linkedList = new LinkedList<String>();
+linkedList.add("a");
+linkedList.add("b");
+linkedList.add("c");
+linkedList.add("d");
+
+System.out.println("for each Loop");
+
+for(String string : linkedList) {
+
+System.out.println("Elements in the LinkedList are: " + string);
+     }
+     System.out.println("------------------------------------------------------");
+}
+
+3.Iteration of Linked List with While Loop:
+-------------------------------------------
+public void iterateUsingWhileLoop() {
+
+LinkedList<String> linkedList = new LinkedList<String>();
+linkedList.add("a");
+linkedList.add("b");
+linkedList.add("c");
+linkedList.add("d");
+int number = 0;
+System.out.println("While Loop");
+
+while(linkedList.size() > number) {
+
+System.out.println("Elements in the LinkedList are: " + linkedList.get(number));
+number++;
+    }
+    System.out.println("------------------------------------------------------");
+}
+
+/3.1 Iteration of Linked List with Do While Loop:
+	
+	public void iterateUsingDoWhileLoop() {
+
+		LinkedList<String> linkedList = new LinkedList<String>();
+		linkedList.add("a");
+		linkedList.add("b");
+		linkedList.add("c");
+		linkedList.add("d");
+		int number = 0;
+		System.out.println("Do While Loop");
+
+		do {
+
+			System.out.println("Elements in the LinkedList are: " + linkedList.get(number));
+			number++;
+		}while(linkedList.size() > number);
+		
+		System.out.println("------------------------------------------------------");
+	}
+
+4.Iteration Iterate Using Iterator:
+===================================
+public void iterateUsingIterator() {
+
+LinkedList<String> linkedList = new LinkedList<String>();
+linkedList.add("a");
+linkedList.add("b");
+linkedList.add("c");
+linkedList.add("d");
+Iterator<String> iterator = linkedList.iterator();
+System.out.println("Iterator");
+
+while(iterator.hasNext()) {
+
+System.out.println("Elements in the LinkedList are: " + iterator.next());
+    }
+    System.out.println("------------------------------------------------------");
+}
+
+================================================================================================================================
+STACK:
+======
+Stack -> child class of Vector
+Follows LIFO (Last In First Out)
+
+//Create object
+Stack<String> stack= new Stack<String>();
+
+//To insert an element -> push()
+stack.push("A"); //3
+stack.push("B"); //2
+stack.push("C"); //1
+stack.push("D"); //-1
+
+//print and see the stack
+System.out.println("Stack elements :"+ stack);
+
+//delete an element-> pop()
+stack.pop(); // LIFO, so the last inserted element will be deleted
+System.out.println("After popping an element : "+ stack);
+
+//to get the top element -> peek()
+System.out.println("Top Element :" + stack.peek());
+
+//search returns the offset value. Offset is the position counted from top
+System.out.println("Searching the element A :"+stack.search("A"));
+
+//if the element is not present then the value is -1
+System.out.println("Searching an element which is not present :"+ stack.search("x"));
+
+=================================================================================================================================
+VECTOR:
+=======
+
+1.Underlying DS= Resizable Array or Growable Array
+2.Duplicates Allowed
+3.Insertion order is preserved
+4.NULL insertion is possible
+5.Heterogeneous objects are allowed
+6.Implements- Serializable, Cloneable and Random Access Interfaces
+7.Most of the methods present in Vector is Synchronized and it is Thread safe.
+8.Vector is present since Java 1.0 and is known as Legacy Class.
+9.The operations are much like ArrayList (introduced in 1.2) but the method names are bit lengthy.
+10.Vector is threadsafe and synchronized and gives poor perfromance.
+	 
+//Ways to create a Vector Object
+Vector<String> vector= new Vector<String>();
+//Vector vector = new Vector(3);
+//Vector object= new Vector(int initialCapacity);
+//Vector vector= new Vector(4, 6); 
+//Vector object= new vector(int initialcapacity, capacityIncrement);
+
+//Adding elements -> addElement()
+vector.addElement("Jeff Bezos");
+vector.addElement("Bernard Arnault");
+vector.addElement(null);
+vector.addElement("Elon Musk");
+vector.addElement("Larry Page");
+vector.addElement("Steve Ballmer");
+System.out.println("Vector "+ vector);
+
+//Retrieve element -> elementAt()
+System.out.println("Element At 0th pos is: "+ vector.elementAt(0));
+
+//remove element ->removeElement()
+vector.removeElement(null);
+System.out.println("Removed NULL Elements: "+ vector);
+
+//sublist
+System.out.println("SubList Vector: "+ vector.subList(1, 3));
+
+//sorting the elements
+Collections.sort(vector);
+System.out.println("After sorting :"+ vector);
+
+//copy elements from Vector to vector
+Vector<String> vector2= new Vector<String>();
+vector2.addElement("A");
+vector2.addElement("B");
+vector2.addElement("C");
+System.out.println("Vector1 before copying:" + vector);
+System.out.println("Vector2 before copying:" + vector2);
+//Copying all the vector to vector2
+Collections.copy(vector, vector2);
+System.out.println("Vector1 after copying:" + vector);
+System.out.println("Vector2 after copying:" + vector2);
+
+//Size and capacity
+Vector<String> vector3= new Vector<String>(5);
+vector3.addElement("A");
+vector3.addElement("B");
+System.out.println("Vector size is :"+ vector3.size());
+System.out.println("Vector capacity is :"+ vector3.capacity());
+
+Iterate using Enumeration:
+==========================
+public void usingEnumeration(){
+		System.out.println("Using Enumeration");
+		System.out.println("=================");
+		Vector<String> vector= new Vector<String>();
+		vector.addElement("A");
+		vector.addElement("B");
+		vector.addElement("C");
+
+		Enumeration<String> enumerator= vector.elements();
+
+		while(enumerator.hasMoreElements()){
+			System.out.println(enumerator.nextElement());
+		}
+		System.out.println("=================");
+	}
+
+Using Iterator:
+===============
+public void usingIterator(){
+		System.out.println("Using Iterator");
+		System.out.println("=================");
+		Vector<String> vector= new Vector<String>();
+		vector.addElement("A");
+		vector.addElement("B");
+		vector.addElement("C");
+
+
+		Iterator< String> iterator= vector.iterator();
+		while(iterator.hasNext()){
+			System.out.println(iterator.next());
+		}
+		System.out.println("=================");
+	}
+	
+Using ListIterator (We can traverse in forward and reverse direction):
+======================================================================
+public void usingListIterator(){
+		System.out.println("Using ListIterator");
+		System.out.println("=================");
+		Vector<String> vector= new Vector<String>();
+		vector.addElement("A");
+		vector.addElement("B");
+		vector.addElement("C");
+
+		ListIterator< String> iterator= vector.listIterator();
+		System.out.println("Forward Traversing");
+		while(iterator.hasNext()){
+
+			System.out.println(iterator.next());
+		}
+		System.out.println("=================");
+		System.out.println("Reverse Traversing");
+		while(iterator.hasPrevious()){
+
+			System.out.println(iterator.previous());
+		}
+		System.out.println("=================");
+	}
+	
+Convert Vector to List:
+=======================
+public void vectorToList(){
+		Vector<String> vector= new Vector<String>();
+		vector.addElement("A");
+		vector.addElement("B");
+		vector.addElement("C");
+		System.out.println("Vector Elements :"+vector);
+		List<String> list=Collections.list(vector.elements());
+		System.out.println("List elements copied from Vector "+ list);
+
+	}
+	
+Convert Vector to ArrayList:
+============================
+public void vectorToArrayList(){
+		Vector<String> vector= new Vector<String>();
+		vector.addElement("A");
+		vector.addElement("B");
+		vector.addElement("C");
+		System.out.println("Vector Elements :"+vector);
+		ArrayList<String> arrayList= new ArrayList<String>(vector);	//conversion is happening here
+		System.out.println("ArrayList elements "+ arrayList);
+		
+	}			

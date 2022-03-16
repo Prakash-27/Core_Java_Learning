@@ -1,0 +1,66 @@
+STRING
+=======
+1.An Object that Represents Sequence of char values.
+eg:"Shiva" is a String of 4 Characters
+
+2.In java string is a immutable object which means 
+it is constant and cannot be change once it has been created.
+
+3.The java.lang.String class implements Serializable, comparable and CharSequence interfaces.
+
+Interface Implementation:
+=========================
+                                               
+String-------------------------> Serializable
+
+
+String-------------------------> comparable
+
+           implements
+String-------------------------> CharSequence
+
+=========================================================
+
+CharSequence <--------------------String
+
+CharSequence <--------------------StringBuffer
+
+                implements
+CharSequence <--------------------StringBuilder
+
+
+How to create a String?
+=======================
+i)By String Literal ---------------> java string literal is created by using double quotes.
+
+eg: String string = "Example";
+
+String creation via String literal
+=================================== 
+                                          Heap Memory
+                                      -------------------
+String2-------------------------\     |                 |
+                                 )))))|)))))Example     |
+String1-------------------------/     |                 |
+                                      -------------------
+ii)By new keyword -------------------> using new keyword : String string = new String("Example");
+
+String creation via NEW keyword:
+================================
+
+                                         Heap Memory
+                                      -------------------
+String2-------------------------\)))))|))))) Example    |
+                                      |                 |
+String1-------------------------/)))))|))))) Example    |
+                                      -------------------
+
+String is IMMUTABLE.HOW?
+========================
+
+                                          Heap Memory
+                                      -------------------
+String2-------------------------\)))))|)))))Example     |
+                                      |                 |
+String1                               |                 |
+                                      -------------------

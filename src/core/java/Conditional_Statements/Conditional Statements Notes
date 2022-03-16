@@ -1,0 +1,24 @@
+Conditional Statements
+=========================
+
+1.If CONDITION if(condition) {}
+--------------
+The Statements gets executed only when the given condition is true.
+If the condition is false then the statements inside if statement body are completely ignored.
+
+2.If else CONDITION if(condition) {} else {}
+-------------------
+The Statements inside "if" would execute if the condition is true, 
+and the statements inside "else" would execute if the condition is false.
+
+3.if-else-if CONDITION
+---------------------- 
+if-else-if statement is used when we need to check multiple conditions.
+In this statement we have only one "if" and one "else",
+however we can have multiple "else if".
+It is also known as if else if ladder.
+
+4.Switch Case CONDITION
+-----------------------
+Switch case statement is used when we have number of options (or choices)
+and we may need to perform a different task for each choice.

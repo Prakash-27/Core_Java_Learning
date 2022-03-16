@@ -1,0 +1,98 @@
+What is EXCEPTION?
+==================
+An Exception is an undesirable or unexpected event, occurs during the execution of a Program
+i.e at a run time, that disrupts the normal flow of the program's instructions.It can be handled by our program.
+
+An Exception is NOT an ERROR?
+=============================
+An Error is a very severe problem, which can't be handled by the program.
+Example: when your computer is run out of space, there is nothing our program can do expect crashing.
+
+                                                     Exception Family:
+                                                    ===================
+
+                                                       ------------    
+                                                       |  Object  |
+                                                       ------------ 
+                                                            |
+                                                            \/
+                                                       -------------
+                                                       | Throwable |
+                                                       -------------
+                                                             |
+                                                             \/
+                     -------------------------------------------------------------------------------------
+                     |                                                                                   |
+                     |                                                                                   |
+                     \/                                                                                  \/
+             -------------------                                                                 -----------------
+             |    Exceptions   |                                                                 |     Error     |
+             -------------------                                                                 -----------------  
+                      |                                                                                  |
+                      |                                                                                  |
+                      \/                                                                                 \/ 
+             --------------------------                                                          -----------------------
+             |    Checked Exception   |                                                          |   Virtual Machine   |
+             |    Example: IO  (or)   |                                                          |        Error        |
+             | Compile time Exception |                                                          -----------------------
+             --------------------------                                                                  | 
+                       |                                                                                 |
+                       |                                                                                 | 
+                       \/                                                                                \/ 
+             ----------------------------                                                         -----------------------
+             | UnChecked Exception (or) |                                                         | Assertion Error etc |             |  Example: Runtime (or)  |                                                     
+             | Null Pointer Exceptions  |                                                         -----------------------  
+             ----------------------------                                                        
+
+Who is very Dangerous?
+======================
+Unchecked Exception. Because, checked exceptions are indicated by the compiler itself. So we can easily handle it.
+But, Unchecked exceptions are not known until the program is run. Dealing with this guy is more important.
+
+Let's solve one Runtime Exception Now!!!:
+=========================================
+Story: Your Friend is upset and you have to decided to make his laugh. you went near to his home and he is in balcony.
+So dull To make his laugh, you are giving weird poses. Suddenly his Mother noticed this and coming to Scholed the Friend. 
+How to handle this unexpected behavior??? 
+
+Try Catch Block:
+================
+Try Block:
+----------
+This is a block where we will write our code which may give run time Exception.
+
+Catch Block:
+------------
+This is where the Exceptions are handled. Catch Block is immediately followed by try block.
+
+IMPORTANT POINTS IN TRY CATCH BLOCK:
+====================================
+i)A try block can have multiple catch blocks. 
+ii)If there are Multiple catch blocks, they should not be of Generic Exception Type.
+iii)If there are no Exceptions then the catch blocks will not get executed.
+
+Significance of Finally Block!!!:
+=================================
+This is a Block of code which will get executed even if the exception occurs or not.
+This Block will contain codes like closing connection of DBs, Buffer, Streams etc.
+
+IMPORTANT POINTS:
+=================
+i)There is no finally block without a TRY-CATCH. A finally block must be associated with a try catch.
+
+ii)Finally Block is Not Mandatory. If there is any exception,then the Finally block will get executed
+after the corresponding catch block, else after try block execution the finally block will get executed.
+
+iii)Finally block also can have Exception. 
+
+iv)The Statements present in the finally block execute even if the try block contains control transfer
+statements like return, Break and continue.
+
+Will Finally Block always Execute?
+==================================
+Nope. Finally will not get executed if 
+
+1.The Thread is Dead(like Sleep, yield, etc).
+2.When System.exit(); is called
+3.When an unrecoverable exception happens in Finally block.
+                                

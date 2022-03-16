@@ -1,0 +1,286 @@
+1.ABSTRACTION - abstract noun - God, Angel, Devil
+===========
+Hiding the implementation(Body {.......}) details.
+
+example: public abstract void Engine(); (without body or block of code)
+
+How can we Achieve Abstraction?
+-------------------------------
+1.Abstract class (0 to 100% Abstraction) we can achieve partial Abstraction in Abstract, also we achieve 100% abstraction in Abstract. 
+2.Interface (100% Abstraction) we can achieve absolute Abstraction in Interface.
+
+Explain with a program
+
+Abstract class:
+---------------
+1.If a class is having, an unimplemented method (without body or block of code), then the Method SHOULD BE Declared abstract.
+
+example:
+--------
+public abstract void engineSecret();
+	   --------
+public abstract void companyVault();
+       --------
+2.If a class is having one abstract method then it should be declared abstract.
+
+example:
+--------
+public abstract class Parent_Car {
+	   --------
+	public abstract void engineSecret();
+	
+	public abstract void companyVault();
+	
+}
+
+3.It may or may not have implementation methods(concrete method).
+
+example:
+--------
+public abstract class Parent_Car {
+	   --------
+	public abstract void engineSecret();  33%---|
+	                                            |--- Abstraction Methods
+	public abstract void companyVault();  33%---|
+	
+    public void engine(){ ----- Implementation/Concrete method.
+      System.out.println("Engine for car"); 33%  
+    }                                       Total abstraction is 66%
+	
+}
+
+4.A class can be declared abstract even if doesn't have abstract method.
+
+example:
+--------
+public abstract class Parent_Car {
+	   --------
+	//public abstract void engineSecret();
+	
+	//public abstract void companyVault();
+	
+}
+
+5.Can we create Object for abstract class? - NOOOOOOOOOOOOOO.
+6.If the child does not implement all the Abstract methods of parent class,
+then the child class must need to be declared abstract as well.
+
+example:
+--------
+public abstract class Child_BMW extends Parent_Car {
+	   --------
+	@Override
+	public void engineSecret() {
+		System.out.println("BMW engine Secret.");
+	}
+	
+	/*
+	 * @Override public void companyVault() {
+	 * System.out.println("BMW engine Vault"); }
+	 */
+	
+	public static void main(String[] args) {
+
+		Parent_Car car = new Child_BMW(); 
+		car.engineSecret();
+		car.companyVault();
+	}
+	
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+
+2.INTERFACE:
+============
+
+What is a Interface?
+--------------------
+1.Like a class but it is not a class.
+
+Why lIKE a class BUT NOT a class?
+---------------------------------
+i)An Interface can have methods and variables just like the class.
+ii)But the variables are public, static & final by default.
+
+example:
+--------
+public interface Interface_Demo {
+
+	//public, static & final by default in the Interface class.
+	String MyProject = "Music Application";
+
+}
+
+iii)The method declared in interface are abstract by default.
+
+example:
+--------
+public interface Interface_Demo {
+
+	//public, static & final by default in the Interface class.
+	String MyProject = "Music Application";
+
+	//public, abstract are by default in Methods 
+	
+	//public abstract void Music();
+	void Music();
+}
+
+//We can't create object for Interface because in Selenium we write.
+	//WebDriver driver = new ChromeDriver();
+	//WebDriver - is a Interface
+	//driver - is a reference object
+	//ChromeDriver() - is a class which can create object.
+	
+	//Never able to create Object for Interface.
+	//Example: WebDriver driver = new WebDriver(); we can't create like this in Selenium.
+
+Why Interface is needed?
+------------------------
+i)To achieve absolute abstraction and multiple Inheritance.
+
+How a class can use a Interface?
+--------------------------------
+i)Using Implements keyword.
+
+example:
+--------
+public class Child_Benz extends Parent_Car implements Interface_Demo {
+
+	@Override
+	public void engineSecret() {
+		System.out.println("Benz engine Secret.");
+	}
+	
+    @Override
+	public void companyVault() {
+		System.out.println("Benz engine Vault");
+	}
+	
+	public static void main(String[] args) {
+
+		Parent_Car car = new Child_Benz(); 
+		car.engineSecret();
+		car.companyVault();
+	}
+    
+    //Unimplemented Methods in Interface_Demo To Child_Benz.
+	@Override
+	public void Music() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void headSet() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void homeTheatre() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+How a Interface use another Interface?
+--------------------------------------
+i)By using Extends keyword.
+
+example:
+--------
+public interface Interface_Demo2 extends Interface_Demo,Interface_Demo3 {
+	
+	//The Interface can extends Multiple Interface by using extends.
+
+}
+
+public class Child_Benz extends Parent_Car implements Interface_Demo, Interface_Demo2, Interface_Demo3 {
+
+    //The class can also implements Multiple Interface.
+    //But class cannot extends multiple classes in java (because java does not support Multiple Inheritance)
+
+}
+
+Explain with a program
+
+3.Tag or Marker Interface:
+========================
+i)An Empty interface is Known as Tag or Marker Interface.
+Example: Serializable, Cloneable.
+
+example:
+--------
+public interface Interface_Demo2 {
+	
+	
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+
+4.ENCAPSULATION:
+================
+i)Process of hiding data and methods together into a single unit.
+
+example:
+--------
+public class Encapsulation_Employee_Example {
+
+	//Encapsulation is also called data hiding.
+	//How to implement Encapsulation:
+	
+	//private data variables: so that this Vars cannot accessed directly from outside the class.
+	private long Ssn;
+	private String employeeName;
+	private int employeeAge;
+	private long employeeAccountNo;
+	
+	public static void main(String[] args) {
+
+		Encapsulation_Employee_Example employee_Example = new Encapsulation_Employee_Example();
+		employee_Example.setEmployeeName("Peter Parker");
+		employee_Example.setEmployeeAge(22);
+		employee_Example.setEmployeeAccountNo(010101010101);
+		employee_Example.setSsn(011011011011); 
+		
+		System.out.println("Employee Name is: "+ employee_Example.getEmployeeName());
+		System.out.println("Employee Age is: "+ employee_Example.getEmployeeAge());
+		System.out.println("Employee Account No is: " +employee_Example.getEmployeeAccountNo());
+		System.out.println("Employee Ssn is: "+employee_Example.getSsn());
+	}
+
+	//Getter and Setter Method: to set and get the values of the Fields
+	public long getSsn() {
+		return Ssn;
+	}
+
+	public void setSsn(int ssn) {
+		Ssn = ssn;
+	}
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+
+	public int getEmployeeAge() {
+		return employeeAge;
+	}
+
+	public void setEmployeeAge(int employeeAge) {
+		this.employeeAge = employeeAge;
+	}
+
+	public long getEmployeeAccountNo() {
+		return employeeAccountNo;
+	}
+
+	public void setEmployeeAccountNo(int employeeAccountNo) {
+		this.employeeAccountNo = employeeAccountNo;
+	}
+
+}

@@ -1,0 +1,294 @@
+JAVA COLLECTIONS:
+=================
+Collection as a Group of Individual Object.
+
+JAVA COLLECTION HEIRARCHY:
+==========================
+                                                       -------------------    iterator()     -----------------  
+                                                       |   Iterable<E>   |-----------------> |  Iterable<E>  |
+                                                       -------------------                   -----------------
+                                                                /\
+                                                                | 
+                                                       -------------------        
+                                                       |  Collection<E>  |
+                                                       -------------------
+                                                                /\
+                                                                |
+                                       ----------------------------------------------------                       
+                                       |                        |                          |
+                                 -------------           -----------------         ----------------         ------------
+    Interfaces ----------------> |  List<E>  |           |     Set<E>    |         |   Queue<E>   |         | Map<K,V> |
+                                 -------------           -----------------         ----------------         ------------
+                                      |                         /\                        /\                     /\
+                                      |                         |                         |                      |
+                                      |                  -----------------         ----------------       ---------------- 
+                                      |                  |  SortedSet<E> |         |   Deque<E>   |       |SortedMap<K,V>|
+                                      |                  -----------------         ----------------       ----------------
+                                      |                         /\                      |                        /\
+                                      |                         |                       |                        |
+                                      |                  ------------------             |              ---------------------
+                                      |                  |NavigationSet<E>|             |              | NavigableMap<K,V> |
+                                      |                  ------------------             |              ---------------------
+                                      \/                        \/                      \/                    \/
+   Implementation --------------> ArrayList                   HashSet              PriorityQueue            HashMap
+       Classes                    LinkedList                  LinkedHashSet        ArrayDeque               HashLinkedMap
+                                  Stack                       TreeSet              LinkedList(Deque)        HashTable
+                                  Vector                                                                    TreeMap
+
+1.JAVA GENERIC'S:
+================
+1.0 <> - This is Java Generic's, in this generic what we add in that bracket only we can access it.
+
+eg: List<String> arrayList = new ArrayList<String>();
+
+1.1 If we want to add some other Data type in without Generic's(arrayList.add(1);)mean it will not accept.
+    because we are assiging one data type in Generic's so can't able to access another Data type in same Object.
+    We can Assign multiple Data type in one Object in that case we have to use Heterogeneous object. 
+
+eg:List<String> arrayList = new ArrayList<String>();
+    arrayList.add(1); --> here '1' is Integer Data type so it will not add to String List.
+    It only accept String Methods in this case. 
+    
+1.2 Unwanted Data type are not going to add in Generic's.
+               
+LISTS<E>:
+========
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ArrayList                               |LinkedList                             |Stack                                    |Vector                                    |                          
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1)ArrayList(C) is One of the classes    |1)LinkedList(C) is One of the classes  |1)It is Legacy class,this two classes are|1)It is Legacy class,this two classes are |
+provides Implementation for the List(I).|provides Implementation for the List(I)|in java since 1.2 version onwards But    |in java since 1.2 version onwards But     |
+                                        |                                       |this two classes are out dated.          |this two classes are out dated.           |
+2)Duplicate and null values are Allowed |2)Duplicate and null values are Allowed|                                         |                                          |
+                                        |                                       |2)Follows LIFO (Last In First Out)       |2)Does not have like Stack                |
+3)Insertion order is Maintained.        |3)Insertion order is Maintained.       |                                         |                                          |
+                                        |                                       |3)Duplicates Allowed.                    |3)Underlying DS= Resizable Array or       |
+4)Underlying DS is resizeable Array     |4)Underlying DS is resizeable Array    |                                         |Growable Array                            |
+or Growable Array.                      |or Growable Array.                     |4)NULL insertion is possible             |                                          |
+                                        |                                       |                                         |4)Duplicates Allowed                      |
+5)Can insert Heterogeneous Objects      |5)Can insert Heterogeneous Objects     |                                         |                                          |
+(If Generic's are not used).            |(If Generic's are not used).           |                                         |5)Insertion order is preserved            |
+                                        |                                       |                                         |                                          |
+6)ArrayList is not Synchronized.        |6)LinkedList is not Synchronized.      |                                         |6)NULL insertion is possible              | 
+                                        |                                       |                                         |                                          |
+7)It is Not a Thread Safe.              |7)It is Not a Thread Safe.             |                                         |7)Heterogeneous objects are allowed       |
+                                        |                                       |                                         |                                          |
+8)Default capacity - 10                 |8)Default capacity - 10                |                                         |8)Implements- Serializable, Cloneable and | 
+                                        |                                       |                                         |Random Access Interfaces.                 | 
+9)Fill Ratio Or Load Factor: 1 or 100%  |9)Fill Ratio Or Load Factor: 1 or 100% |                                         |                                          |
+                                        |                                       |                                         |9)Most of the methods present in Vector is| 
+10)GrowthRate:currentSize+currentSize/2 |10)GrowthRate:currentSize+currentSize/2|                                         |Synchronized and it is Thread safe.       |   
+                                        |                                       |                                         |                                          | 
+11)implements RandomAccess(I),          |11)LinkedList is also implements those |                                         |10)Vector is present since Java 1.0 and is|    
+Serializable(I)(This is a Network which |Serializable(I)(This is a Network which|                                         |known as Legacy Class.                    |
+is able toTransmit Data Serially)and    |is able toTransmit Data Serially) and  |                                         |                                          |
+Cloneable(I)(We can Make a Clone for    |Cloneable(I)(We can Make a Clone for   |                                         |11)The operations are much like ArrayList |
+Interface) Interfaces.                  |Interface) Interfaces But Not Implement|                                         |(introduced in 1.2) but the method names  |
+                                        |                                       |                                         |are bit lengthy.                          |
+                                        |                                       |                                         |                                          | 
+12)Best Suited for Search Operations and|12)Best Suited For Insertion and       |                                         |12)Vector is threadSafe and synchronized  |
+Retrieving Operation, performs worst on |Deletion Operations,Worst on Search and|                                         |and gives poor performance.               |
+insertion and deletion                  |Retrieving Operation.                  |                                         |                                          |
+                                        |LinkedList is implemented using Doubly |                                         |13)In Vector Iterate using Enumeration.   |
+13)ARRAYLIST is NON - Synchronized.     |linked list.This is best suited for    |                                         |we used to iterate method is              |
+(It should not be used in MultiThreading|insertion and deletion operations.     |                                         |hasMoreElements()To see the value on      |
+environment without explicit            |                                       |                                         |console means use nextElement().          |
+Synchronization.)                       |13)LINKEDLIST is NON - Synchronized.   |                                         |                                          |
+                                        |(It should not be used in              |                                         |14)In Vector ListIterator Interface       |
+                                        |MultiThreading environment without     |                                         |is Their in that it has two types.        |   
+14)ARRAYLIST - NO THREAD SAFE.          |explicit Synchronization.)             |                                         |                                          |
+                                        |                                       |                                         |i)ListIterator Forward Traversing.        |                                         |
+15)ArrayList can Iterate using looping  |14)LINKEDLIST - NO THREAD SAFE.        |                                         |(In Forward traversing we used to         |       
+Statements like while, do while         |                                       |                                         |iterate method is hasNext())              |
+Iterator is Interface so we can't create|15)LinkedList can Iterate using looping|                                         |(To see the value on console means use    |            
+Object for that, so we write            |Statements like while, do while        |                                         |next() Methods)this Methods are done      |   
+arrayList.iterator().                   |Iterator is Interface so we can't      |                                         |only in while,do while Looping.           |
+                                        |create Object for that, so we write    |                                         |                                          |
+16)In ArrayList ListIterator Interface  |linkedList.iterator().                 |                                         |ii)ListIterator Forward Traversing.       | 
+is Their in that it has two types.      |                                       |                                         |(In Reverse traversing we used to         |
+                                        |16)In LinkedList we Doesn't have any   |                                         |iterate method is hasPrevious())          | 
+i)ListIterator Forward Traversing.      |ListIterator Interface or Any Other    |                                         |(To see the value on console means use    | 
+(In Forward traversing we used to       |Type of Iterator.                      |                                         |previous() Methods)this Methods are done  |
+iterate method is hasNext())            |                                       |                                         |only in while,do while Looping.           |
+(To see the value on console means use  |17)Here it is also DynamicPolymorphism |                                         |                                          |
+next() Methods)this Methods are done    |List<String> linkedList = new          |                                         |                                          |
+only in while,do while Looping.         |LinkedList<String>(); Because          |                                         |                                          |
+                                        |ParentClass Reference = new ParentClass|                                         |                                          |
+ii)ListIterator Reverse Traversing.     |Object;                                |                                         |                                          |
+(In Reverse traversing we used to       |                                       |                                         |                                          |
+iterate method is hasPrevious())        |                                       |                                         |                                          |
+(To see the value on console means use  |                                       |                                         |                                          |
+previous() Methods)this Methods are done|                                       |                                         |                                          | 
+only in while,do while Looping.         |                                       |                                         |                                          |
+                                        |                                       |                                         |                                          |
+17)List<String> arrayList =             |                                       |                                         |                                          |
+new ArrayList<String>();--> This type is|                                       |                                         |                                          |
+Dynamic Polymorphism.                   |                                       |                                         |                                          |
+Because ParentClass Reference =         |                                       |                                         |                                          |
+new ChildClass Object;                  |                                       |                                         |                                          |
+                                        |                                       |                                         |                                          | 
+18)ConcurrentModificationException:     |                                       |                                         |                                          |
+--> Thread Process is While Reading the |                                       |                                         |                                          |
+Operation in for Loop if we add (or)    |                                       |                                         |                                          |
+remove some string or other data type   |                                       |                                         |                                          |
+methods on operation iterating method it|                                       |                                         |                                          |
+will throw this Exception.              |                                       |                                         |                                          |  
+                                        |                                       |                                         |                                          |
+19)CopyOnWriteArrayList is in ArrayLists|                                       |                                         |                                          |
+adding elements to SynchronizedArrayList|                                       |                                         |                                          |
+then can iterate ArrayLists using While |                                       |                                         |                                          |
+Loop on the time we can add()orRemove() |                                       |                                         |                                          |
+the element in using Object of          |                                       |                                         |                                          |
+CopyOnWriteArrayList.                   |                                       |                                         |                                          | 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SETS<E>:
+========
+Set(I)-> HashSet (Class) and LinkedHashSet(Class) are implementations
+Set(I) -> SortedSet(Child Interface)-> NavigableSet(Child Interface)-> TreeSet(Class) is the implementation.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+HashSet                                 |LinkedHashSet                                    |TreeSet                                            |  
+-----------------------------------------------------------------------------------------------------------------------------------------------
+1)To store group of individual objects, |1)LINKEDHASHSET(I) is implementation class for   |1)TREESET(Class) is the implementation class of    |  
+SET(I) is one of the child Interfaces   |SET(I).                                          |SORTEDSET(Interface),NAVIGABLESET(Interface).      |
+of Collection(I).                       |                                                 |                                                   |
+                                        |                                                 |                                                   |
+2)2.Duplicate values are not allowed    |2)Duplicate values are NOT allowed.              |2)Duplicates values are NOT allowed.               |
+                                        |                                                 |                                                   |
+3)Insertion order will not be maintained|3)Insertion order IS MAINTAINED.                 |3)Elements will be Retrieved on NATURAL SORTING    |
+                                        |                                                 |ORDER.                                             |
+4)Set(I) doesn't have any new methods   |4)Set(I) doesn't have any new methods other than |4)Set(I) doesn't have any new methods other than   |  
+other than given in Collection(I).      |given in Collection(I)                           |given in Collection(I)                             |
+                                        |                                                 |                                                   |
+5)DS for HashSet is Hash table.         |5)underlying DS is HASH TABLE + LINKED LIST      |5)underlying DS-> Binary Search Tree.              |
+                                        |                                                 |                                                   | 
+6)If we add duplicate value to HashSet, |6)If we add duplicate value to LinkedHashSet,    |6)If we add duplicate value to TreeSet,            |
+simply it will return false to the add()|simply it will return false to add() and it won't|simply it will return false to add() and it won't  |
+and it won't throw any error or         |throw any error or exception.                    |throw any error or exception.                      | 
+exception.                              |                                                 |                                                   |
+                                        |                                                 |                                                   |
+7)We can insert null values in HashSet. |7)NULL elements are allowed in LinkedHASHSET.    |7)NULL elements are NOT allowed in TREESET.        |
+                                        |                                                 |                                                   |
+8)Heterogeneous Object values can be    |8)can insert Heterogeneous Objects               |8)Heterogeneous data not allowed, If added it will |  
+added(If Generic's are not used).       |(If generic's are not used).                     |throw Exception, ClassCast Exception will occur.   |
+                                        |                                                 |                                                   | 
+9)Implements Serializable and Cloneable?|9)Implements Serializable and Clonable Interfaces|9)Implements Serializable and Clonable Interfaces  |
+-> Yes                                  |                                                 |                                                   |
+                                        |                                                 |                                                   |  
+10)Data are stored based on hashcode,   |10)Data are stored based on HASHCODE,            |10)but TreeSet maintains ascending or alphabetical |
+so search is very effective.            |So Search is very effective.                     |order.Difference between HashSet and TreeSet, is   |
+                                        |                                                 |hasSet doesn't maintain order. TreeSet maintains   |
+11)Fill Ratio or Load factor:0.75 or 75%|11)Fill Ratio or Load factor: 0.75 or 75%        |Natural Sorting order                              |
+                                        |                                                 |                                                   |
+12)Default capacity-16                  |12)Default capacity - 16                         |11)Fill Ratio or Load factor: 0.75 or 75%          |
+                                        |                                                 |12)Default capacity - 16                           |
+13)Set(Interface) have not any Interface|13)Set(Interface) have not any Interface         |13)Set(Interface) have not any Interface           |
+like SetIterator, But in List(Interface)|like SetIterator, But in List(Interface)         |like SetIterator, But in List(Interface)           |
+have ListIterator Interface.            |have ListIterator Interface.                     |have ListIterator Interface.                       | 
+                                        |                                                 |                                                   |
+                                        |                                                 |14)TREESET have Two types of Iterator.             | 
+                                        |                                                 |i)Normal Iterator                                  | 
+                                        |                                                 |ii)Descending Iterator                             |
+                                        |                                                 |                                                   |
+                                        |                                                 |Normal Iterator is act as a Forward Traversing     | 
+                                        |                                                 |iterator,(In Forward traversing we used to iterate |  
+                                        |                                                 |method is hasNext())                               |    
+                                        |                                                 |(To see the value on console means use next()      |                
+                                        |                                                 |Methods)this Methods are done only in while,do     | 
+                                        |                                                 |while Looping.                                     | 
+                                        |                                                 |                                                   |
+                                        |                                                 |Descending Iterator is act as a Reverse Traversing |
+                                        |                                                 |iterator,(In Reverse Traversing we used to iterate |
+                                        |                                                 |method is hasNext())                               | 
+                                        |                                                 |(To see the value on console means use next()      |
+                                        |                                                 |Methods)this Methods are done only in while,do     |
+                                        |                                                 |while Looping.                                     |
+                                        |                                                 |                                                   | 
+                                        |                                                 |15)For default natural sorting order,the objects   |
+                                        |                                                 |should be homogeneous and comparable (OR)          |  
+                                        |                                                 |else class cast exception will throw.              | 
+                                        |                                                 |                                                   |
+                                        |                                                 |16)In TreeSet we want to use Generic type means it |
+                                        |                                                 |have three conditions:                             |
+                                        |                                                 |i)the objects should be homogeneous.               |
+                                        |                                                 |ii)then the Generic<Integer> type want to Implement| 
+                                        |                                                 |Comparable Interface.                              |  
+                                        |                                                 |iii)Here 'Integer' is a Wrapper Class, So All the  |
+                                        |                                                 |Wrapper classes extends Comparable Interface so it |
+                                        |                                                 |will not throw class cast exception.               |
+                                        |                                                 |                                                   |
+                                        |                                                 |17)But in StringBuffer StringBuilder classes will  |
+                                        |                                                 |not implement Comparable Interface that why class  |
+                                        |                                                 |cast exception was thrown.                         |
+-----------------------------------------------------------------------------------------------------------------------------------------------  
+
+MAPS<E>:
+========
+Map - Map is not a part of collection Interface.
+Map and its implementation Classes.
+MAP(I) --> HASHMAP(C) --> LINKEDHASHMAP(C).
+MAP(I) --> SORTEDMAP(I) --> NAVIGABLEMAP(I) --> TREEMAP(C).
+
+Nature of Maps:
+===============
+MAP(I) is NOT a child Interface of  Collection(I) and hence it is not Considered to be a True Collection.
+It Represents Data in KEY-VALUE Pairs.
+Duplicate Key are NOT Allowed in MAP.
+Duplicate Values are Allowed
+Examples:
+         Employee#(Key) -> Employee Name(Value)
+         PinCode(Key) -> Town or City Name.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+HashMap                                           |LinkedHashMap                                           |TreeMap                                                  |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1)HASHMAP(I) is implementation Class of MAP(I).   |1)HASHMAP(I) is implementation Class of MAP(I).         |1)TREEMAP(C) is implementation class for MAP(I)          |    
+                                                  |                                                        |                                                         |
+2)Duplicate Key are NOT Allowed in MAP But        |2)Duplicate Key are NOT Allowed in MAP But Duplicate    |2)Duplicate Keys are NOT Allowed but Duplicate values    |                           
+Duplicate Values are Allowed.                     |Values are Allowed.                                     |are Allowed.                                             |
+                                                  |                                                        |                                                         |
+3)Uses a technique called Hashing to Store        |3)Uses a technique called Hashing to Store elements.    |3)Uses a technique called Tree to Store elements.        |
+elements.                                         |                                                        |                                                         |
+                                                  |                                                        |                                                         |
+4)Only one NULL Key is Allowed.                   |4)Only one NULL Key is Allowed.                         |4)NULL Key is NOT Allowed.                               |
+                                                  |                                                        |                                                         | 
+5)The Order is not Preserved as it uses Hashing,  |5)The Order is Preserved, So we can Predict the         |5)The Element will be retrieved on natural Sorting Order.|
+So we can't Predict the retrieval order of the    |retrieval order of the elements inserted.               |                                                         |
+elements inserted.                                |                                                        |                                                         |
+                                                  |                                                        |                                                         |
+6)A Value of a Map can only be fetched using      |6)A Value of a Map can only be fetched using            |6)A Value of a Map can only be fetched using             |
+it's KEY.                                         |it's KEY.                                               |it's KEY.                                                |
+                                                  |                                                        |                                                         |
+7)It's not Syncronized. So if it has to be used   |7)It's not Syncronized. So if it has to be used on      |7)It's not Syncronized. So if it has to be used on       |  
+on MultiThreading environment, it has to be       |MultiThreading environment, it has to be Syncronized    |MultiThreading environment, it has to be Syncronized     |
+Syncronized explicitly.                           |explicitly.                                             |explicitly.                                              | 
+                                                  |                                                        |                                                         |
+8)Initial Capacity: 16 and Factor Load: .75       |8)Initial Capacity: 16 and Factor Load: .75             |8)Initial Capacity: 16 and Factor Load: .75              |
+                                                  |                                                        |                                                         |
+9)ENTRY means Key-Value Pair is called ENTRY SET  |9)ENTRY means Key-Value Pair is called ENTRY SET        |9)ENTRY means Key-Value Pair is called ENTRY SET         |
+in HASHMAP.                                       |in LinkedHashMap.                                       |in TreeMap.                                              |
+                                                  |                                                        |                                                         |
+10)hashMap.keySet():                              |10)hashMap.keySet():                                    |10)treeMap:                                              |
+====================                              |====================                                    |===========                                              |
+i)Fetch the set of Keys in the Map(NOTE: Here it's|i)Fetch the set of Keys in the Map(NOTE: Here it's      |i)Fetch the set of Keys in the Map(NOTE: Here it's       |
+not a List of Keys, it's Set of Keys)             |not a List of Keys, it's Set of Keys)                   |not a List of Keys, it's Set of Keys)                    |
+ii)Because List will allow duplicate but Set won't|ii)Because List will allow duplicate but Set won't      |ii)Because List will allow duplicate but Set won't       |
+allow Duplicate Keys, So Keys Should be Unique.   |allow Duplicate Keys, So Keys Should be Unique.         |allow Duplicate Keys, So Keys Should be Unique.          | 
+                                                  |                                                        |                                                         |
+11)In HashMap The Order is not Preserved as it    |11)In LinkedHashMap Order is Preserved, So we           |11)In TreeMap Natural Sorting Order is Preserved,        |
+uses Hashing, So we can't Predict the retrieval   |can Predict the retrieval order of the elements         |The Element will be retrieved on natural Sorting Order   | 
+order of the elements inserted.                   |inserted.                                               |inserted.                                                | 
+                                                  |                                                        |                                                         |
+12)In HashMap Normal Key and null Key are same,   |12)In LinkedHashMap Normal Key and null Key are         |12)In TreeMap Key(Districts) and Value(null)             |    
+the Duplicted Key can overrite the value.         |same, the Duplicated Key can overrite the value.        |treeMap.put("Districts", null);                          |
+hashMap.put(null, "Lionel Messi");                |linkedHashMap.put(null, "Lionel Messi");                |will not be Print in console so it is not                |
+hashMap.put(null, "Christiana Ronaldo");          |linkedHashMap.put(null, "Christiana Ronaldo");          |visible.                                                 |
+O/P: {null Christiana Ronaldo}                    |O/P: {null Christiana Ronaldo}                          |                                                         | 
+                                                  |                                                        |                                                         | 
+13)In HashMap Normal values and null values are   |13)In LinkedHashMap Normal values and null values are   |13)In TreeMap Key(null) and Value(Districts)             |
+same, but the values are not Overriten.           |same, but the values are not Overriten.                 |treeMap.put(null, "Districts");                          | 
+hashMap.put("KKR", null);                         |linkedHashMap.put("KKR", null);                         |In this type Null Pointer Exception will Occur.          |
+hashMap.put("DC", null);                          |linkedHashMap.put("DC", null);                          |                                                         |
+O/P: {KKR null, DC null}                          |O/P: {KKR null, DC null}                                |                                                         |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------

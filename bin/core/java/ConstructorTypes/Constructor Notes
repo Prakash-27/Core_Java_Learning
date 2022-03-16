@@ -1,0 +1,42 @@
+1.What is Constructor?
+
+constructor is a Block of code that initializes the newly created Object.
+ 
+eg:
+Constructor {
+ 
+     //Block of code
+           
+    }
+    
+2.Must have properties of constructor:
+
+i)Constructor name must be the same as its class name
+ii)must not have explicit return type
+iii)cannot be abstract, static, final and Synchronized
+
+3.Types of Constructor:
+
+i)Default Constructor  ii) No Argument/Non Parameterized Constructor  iii) Parameterized Constructor
+
+4.Default Constructor Explained:
+
+i)When we don't Provide any constructor, compiler will provide one.
+ii)We can't see with naked eye, it will be in class file.
+iii)used to provide the default values in to the object like null, 0, etc., depending on the type.
+
+5.No Argument/Non Parameterized Constructor:
+
+i)no argument will be there
+ii)It will allow us to write logic when object is created.
+iii)This is not Default Constructor.
+
+6.Parameterized Constructor:
+
+It has arguments(Parameters)
+
+7.Constructor Overloading:
+
+8.Having only parameterized constructor and calling no argument constructor.
+
+9.super keyword - works in Inheritance. 

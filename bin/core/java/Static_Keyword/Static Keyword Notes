@@ -1,0 +1,28 @@
+STATIC KEYWORD:
+===============
+1)static keyword can be used with class, variable, method and blocks.
+2)belong to the class instead of a Specific instance, this means if you make a member static, you can access it without object.
+
+Example Program(static method):
+===============================
+1)create a static method and call it without object.
+NOTE: we can call static method from non-static method but in other hands we can't call non-static method in static method.
+
+Static Block:
+=============
+1)initializing the static variables.
+2)gets executed when the class is loaded in the memory.
+3)can have multiple static blocks, execution in written order.
+Example: write a program with single and multi static Block.
+
+Static Variables:
+=================
+1)common to all the instances (or objects) of the class because it is a class level variable.
+2)only a single copy of static variable is created and shared among all the instances of the class.
+
+Static class:
+=============
+A class can be made static only if it is a nested class.
+we don't need this.Because we won't use nested class.
+
+

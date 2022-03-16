@@ -1,0 +1,58 @@
+1.DataTypes: 
+
+Data types are two types primitive and non-primitive data types.
+
+Project:
+        Packages--> collections of similar classes - pascal case
+        com.core.java.learning
+        
+        class {data + methods (function)}
+        
+        public static void main(String[] args) {
+        
+        } - Entry Point of execution
+        
+Object Oriented Language:
+        
+        int, double, float, char, long, byte, String, boolean, short
+        
+2.WrapperClass: this classes are all primitive types which we can create object for individually.--> Integer integer = new Integer(0);
+        
+        Integer, Double, Float, Character, Long, Byte, String, Boolean, Short
+        
+-----------------------------------------------------------------------------------------------------------------
+3.0 return type:
+
+3.0.1 without return type: 
+
+
+
+    // Without return type.
+	public void collectAmountandGiveItToMe() {
+		System.out.println("Elder Brother have collected Rupee: " + collectedAmount);
+	}
+	
+	public static void main(String[] args) {
+	 //without return type.
+		Return_type YoungerBrother = new Return_type();
+	    YoungerBrother.collectAmountandGiveItToMe();
+	}
+	
+----------------------------------------------------------------------------------------------------------------
+
+3.0.2 with return type:
+	
+	Integer collectedAmount = 1000;
+	
+	// with return type.
+	public Integer collectAmountAndGiveItToMe() {
+		System.out.println("Elder Brother have collected Rupee: " + collectedAmount + " and sent it to you");
+		return collectedAmount;
+	}
+
+    public static void main(String[] args) {
+      //with return type. 
+		Integer amount = YoungerBrother.collectAmountAndGiveItToMe();
+		System.out.println("Got the Amount YoungerBrother: " + amount);
+    }     
+        

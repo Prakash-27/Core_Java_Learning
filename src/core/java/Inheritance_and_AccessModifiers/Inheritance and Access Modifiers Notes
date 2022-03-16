@@ -1,0 +1,45 @@
+INHERITANCE:
+============
+process of acquiring the properties(data + methods)
+
+i)The one which takes the Parent class to extends in Child class - Child class
+ii)The one which gives to Child class from Parent class - Parent class
+
+NOTE:
+A child can be a parent of another class.
+A parent can be a child of another class.
+
+1.How to Inherit?
+Using extends keyword
+      -------
+2.Write a program and explain:
+
+IS-A Relationship.
+------------------
+
+3.Types of Inheritance:
+-----------------------
+i)Single Level: A -> B
+ii)Multi Level: A -> B -> C
+iii)Multiple Level: (Not Supported in Java) A + B -> C
+iv)Hierarchial Level: A -> B, A -> C, A -> D
+
+4.Access Modifiers:
+-------------------
+i)default - When no access modifier is Specified.
+ii)private - only within the class in which they are declared.
+iii)protected - within same package/sub classes in different package.
+iv)public - from everywhere in the program.
+
+Main Difference:
+----------------
+Access Modifier     within class     within package    same package by subclasses    outside package by subclasses    Global
+-----------------------------------------------------------------------------------------------------------------------------
+public                  yes               yes                     yes                              yes                 yes
+-----------------------------------------------------------------------------------------------------------------------------
+protected               yes               yes                     yes                              yes                 no    
+-----------------------------------------------------------------------------------------------------------------------------
+default/no access       yes               yes                     yes                              no                  no    
+-----------------------------------------------------------------------------------------------------------------------------
+private                 yes               no                      no                               no                  no    
+-----------------------------------------------------------------------------------------------------------------------------

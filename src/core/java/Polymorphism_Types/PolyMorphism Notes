@@ -1,0 +1,54 @@
+POLYMORPHISM:
+=============
+Q1. will you talk the same way with your friend as if you were talking to your GF/BF?
+
+Q2. Can we behave the same way in office/college as if we're in home?
+
+No. Our activity changes based on WHOM WE ARE INTERACTING with. Isn't it?
+
+So What is Polymorphism?
+------------------------
+Polymorphism is the capability of a method(function) to do different
+things based on the object that it is acting upon.
+
+Types:
+------
+1.static/Compile/early binding (overloading)
+2.Dynamic/RunTime/late binding (overriding)
+
+Overloading: (Method name should be same)
+-----------------------------------------
+1.If there is any change (change in data type, or change in order of passing parameter)
+in the parameter passed to a method, then its Overloading.
+2.happens at compile-time.
+3.Done in the same class.
+
+overriding: (Method name should be same)
+----------------------------------------
+In overriding concept parent class method is not satisfied by the child class 
+then the child class can override that method by its own implementation using @override.
+
+1.No change in anything.
+2.happens at Runtime.
+3.done in the parent/child relationship (IS-A Relationship).
+
+Main differences:
+-----------------
+Aspects                                            Overloading                                          Overriding
+--------------------------------------------------------------------------------------------------------------------------------------
+1.Name of the method                               1.Must be same                                       1.Must be same
+--------------------------------------------------------------------------------------------------------------------------------------
+2.Argument type (parameter passed)                 2.Must be different (or change                       2.Must be same(order also 
+                                                     in passing order)                                    should be same)
+--------------------------------------------------------------------------------------------------------------------------------------                                                     
+3.Return types                                     3.can be anything                                    3.Must be same (or)
+                                                                                                          covariant return types.
+--------------------------------------------------------------------------------------------------------------------------------------
+4.Access Modifiers                                 4.can be anything                                    4.It should be equal modifiers
+                                                                                                          or greater modifier
+--------------------------------------------------------------------------------------------------------------------------------------
+5.Throwing Exception                               5.No Restrictions, can be anything                   5.Parent should Throw the
+                                                                                                          same or greater Exception
+--------------------------------------------------------------------------------------------------------------------------------------
+6.private methods                                  6.can be overloaded                                  6.can't be overridden  
+                                                                                                                                                                                                                                                                                                                            

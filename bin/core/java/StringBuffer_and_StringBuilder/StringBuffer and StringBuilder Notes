@@ -1,0 +1,65 @@
+STRING BUFFER:
+==============
+1.An Object that Represents Sequence of char values.
+eg: "Shiva" is a String of 4 Characters
+
+2.In java stringBuffer is a mutable object.
+                            ---------------
+3.The StringBuffer class is a child of CharSequence Interface. 
+
+4.StringBuffer is Synchronised / THREAD-SAFE.
+[i.e multiple threads cannot access it simultaneously]
+
+How to create a StringBuffer Object?
+=====================================
+(there is no string literal option like string (String string = "Example"; ------> will not work)) 
+
+By new keyword
+
+using new Keyword:
+
+StringBuffer buffer = new StringBuffer("Example");
+
+Object creation for StringBuffer:
+=================================
+
+                                          Heap Memory
+                                      -------------------
+                                      |     ----------- |
+stringBuffer name ------------------------->| Example | |
+                                      |     ----------- |
+                                      -------------------
+                                      
+
+                                      
+name.append("sums")                       Heap Memory
+                                      -------------------
+                                      | --------------  |
+stringBuffer name --------------------->| Examplesums|  |
+                                      | --------------  |
+                                      -------------------    
+==================================================================================================================================
+                                                                        
+ STRING BUILDER:
+ ===============
+1.An Object that Represents Sequence of char values.
+eg: "Shiva" is a String of 4 Characters
+
+2.In java stringBuilder is a mutable object.
+                            ---------------
+3.The StringBuilder class is a child of CharSequence Interface. 
+
+4.StringBuilder is NON-Synchronised / NOT THREAD-SAFE.
+[i.e multiple threads can access it simultaneously]   
+
+
+Difference b/w StringBuffer and StringBuilder:
+==============================================
+-----------------------------------------------------------------------------------------------------------------------------------
+                     StringBuffer                             |                                   StringBuilder        
+-----------------------------------------------------------------------------------------------------------------------------------                                      
+1.StringBuffer is Synchronised which means,two threads can't  |    1.StringBuilder is Non-Synchronised which means,two threads can
+call the methods of StringBuffer simultaneously.              |    call the methods of StringBuilder simultaneously.
+                                                              |
+2.StringBuffer is less efficient than StringBuilder.          |    2.StringBuilder is more efficient than StringBuffer.
+                                                              |

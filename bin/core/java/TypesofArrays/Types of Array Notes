@@ -1,0 +1,128 @@
+Array:
+======
+Array--> To store a Similar data type values in a single variable.
+
+OneDimentionalArray:
+====================
+                                                                               0 
+		//1. int Array:                                                       ----
+		//Lowest Bound/index = 0                                            0 |  |
+		//Upper Bound/index = n-1 (n is size of Array)                        ----
+		                                                                    1 |  |
+		int i[] = new int[4];                                                 ----
+		i[0] = 10;                                                          2 |  |
+		i[1] = 20;                                                            ----
+		i[2] = 30;                                                          3 |  |
+		i[3] = 40;                                                            ----
+		                                                                   1-D Array 
+		System.out.println(i[3]);
+		
+//because given array int value is 4 array start in 0,1,2,3, then how could it handle it with 4th array.
+		//System.out.println(i[4]); // java.lang.ArrayIndexOutOfBoundsException		
+		
+		System.out.println(i.length);
+		
+		for (int j = 0; j < i.length; j++) {
+			 System.out.println(i[j]);
+			
+		}
+		
+		//2.Double Array:
+		double d[] = new double[3];
+		d[0] = 10.75;
+		d[1] = 20.56;
+		d[2] = 54.89;
+		
+		System.out.println(d[2]);
+		
+		//3.Char Array:
+		char c[] = new char[3];
+		c[0] = 'A';
+		c[1] = 10;
+		c[2] = '$';
+		
+		System.out.println(c[2]);
+		
+		//4.Boolean Array:
+		boolean b[] = new boolean[2];
+		b[0] = true;
+		b[1] = false;
+		
+		System.out.println(b[0]);
+		
+		//String Array:
+		String s[] = new String[3];
+		s[0] = "Selenium";
+		s[1] = "Appium";
+		s[2] = "Selenide";	
+		
+		System.out.println(s[0]);
+		
+		//Object Array: (Object is a Super Class) -- is used to store data types values.
+		Object object[] = new Object[5];
+		object[0] = "Ben 10";
+		object[1] = 25;
+		object[2] = 70.8;
+		object[3] = 'M';
+		object[4] = true;
+		
+		System.out.println(object.length);
+		System.out.println(object[0]);
+		
+		for (int value = 0; value < object.length; value++) {
+			System.out.println(object[value]);
+		}
+		
+DisAdvantages of Array:
+======================
+1.Size is Fixed --> static Array -- To OverCome this problem -- we use collection -- ArrayList, HashTable -- use dynamic array.
+2.Store Only similar data type -- To OverCome this problem -- we use Object Array.
+	
+================================================================================================================================
+TwoDimentionalArray:
+====================
+String s[][] = new String[3][6]; 
+		
+		// it will get the  how many Row count.
+		System.out.println("Row Count: "+s.length);
+		// it will get the how many Column count. 
+		//s[0] or s[1] or s[2] the columns are same in size, Only Rows are Different.
+		System.out.println("Column Count: "+s[0].length);
+		
+		//1st Row:
+		s[0][0] = "A0";
+		s[0][1] = "B0";
+		s[0][2] = "C0";                            0   1   2   3   4   5
+		s[0][3] = "D0";                          -------------------------
+		s[0][4] = "E0";                        0 |0.0|0.1|0.2|0.3|0.4|0.5|
+		s[0][5] = "F0";                          -------------------------
+		                                       1 |1.0|1.1|1.2|1.3|1.4|1.5|
+		                                         -------------------------
+		                                       2 |2.0|2.1|2.2|2.3|2.4|2.5|
+		//2nd Row:                               -------------------------
+		s[1][0] = "A1";                                  2-D Array
+		s[1][1] = "B1";                              (Rows and Columns)
+		s[1][2] = "C1";                                  3x6 Matrix   
+		s[1][3] = "D1";
+		s[1][4] = "E1";
+		s[1][5] = "F1";
+		
+		
+		//3rd Row:
+		s[2][0] = "A2";
+		s[2][1] = "B2";
+		s[2][2] = "C2";
+		s[2][3] = "D2";
+		s[2][4] = "E2";
+		s[2][5] = "F2";
+		
+		System.out.println(s[0][1]);
+		System.out.println(s[1][5]);
+	    System.out.println(s[2][3]);
+	    
+	    for(int row = 0; row < s.length; row++) {
+	    	for(int col = 0; col < s[0].length; col++) {
+	    		System.out.println(s[row][col]);
+	    	}
+	    }
+	    
