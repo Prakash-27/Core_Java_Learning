@@ -2,6 +2,7 @@ MAP:
 ====
 Map - Map is not a part of collection Interface.
 Map and its implementation Classes.
+MAP(I) --> HASHTABLE(C)
 MAP(I) --> HASHMAP(C) --> LINKEDHASHMAP(C).
 MAP(I) --> SORTEDMAP(I) --> NAVIGABLEMAP(I) --> TREEMAP(C).
 
