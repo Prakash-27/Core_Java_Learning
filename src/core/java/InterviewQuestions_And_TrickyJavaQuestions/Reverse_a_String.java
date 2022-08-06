@@ -77,23 +77,21 @@ public class Reverse_a_String {
 		StringBuilder sbu_rev = sbu.reverse();
 		System.out.println("Reverse a String Using StringBuilder: " + sbu_rev);
 
+//------------------------------------------------------------------------------------------------------------------------------		
 		
-		// System.out.println(reverse_String("Play Wright"));
+		System.out.println(reverse_String("Play Wright"));
 
 	}
-
-//	public static String reverse_String(String s) {
-//		char[] char_array = s.toCharArray();
-//		int r = 0;
-//		
-//		for(int i =0; i<char_array.length-1; i++) {
-//			char t = char_array[i];
-//			char_array[i] = char_array[r];
-//			char_array[r] = t;
-//		}
-//		
-//		return new String(char_array);
-//		
-//	}
+	
+	public static String reverse_String(String s) {
+		char[] char_array = s.toCharArray();
+		int len = char_array.length;
+		String rev = "";
+		
+		for(int i=len-1; i>=0; i--) {
+			rev = rev + char_array[i];
+		}
+		return rev;
+	}
 
 }

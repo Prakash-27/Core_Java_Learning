@@ -1,0 +1,301 @@
+Types of Operators:
+===================
+1.Arithmetic Operators
+2.Unary Operators
+3.Relational Operators
+4.Logical Operators
+5.Assignment Operators
+
+1.Arithmetic Operators:
+=======================
+ + -> Opr1 + Opr2
+      Adds or Concatenates Opr1 and Opr2
+      
+ - -> Opr2 - Opr1
+      Subtracts Opr2 from Opr1
+      
+ * -> Opr1 * Opr2  
+      Multiples Opr1 by Opr2 
+      
+ / -> Opr1 / Opr2  
+      Divides Opr1 by Opr2
+      
+ % -> Opr1 % Opr2
+      Calculates remainder of dividing Opr1 by Opr2  
+      
+      
+2.Unary Operators:
+==================  
+ + -> Unary plus operator; indicates positive value (by default numbers are always Positive)
+ 
+ - -> Unary minus operator; negates an expression or value.
+ 
+ ++ -> Increment operator; increments a value by 1
+ 
+ -- -> Decrement operator; decrements a value by 1
+ 
+ ! -> Logical Complement operator; inverts the value of a boolean 
+ 
+ 
+ Increment and Decrement Operators:
+ ----------------------------------
+ --> Increment and decrement operators increase and decrease a value stored in a number variable by 1.
+ For example,
+       int var = 100;
+       
+       //Following two statements are incrementing the value of var by 1
+       var = var + 1 //increment the value of var by 1
+       
+       var++; //increment the value of var by 1
+ 
+ --> The increment and decrement operations can be placed before or after an operand.
+ 
+ --> When the operator is placed before the operand it is called Pre-
+ For Example,
+    ++var; or --var;
+ 
+ --> When the operator is placed after the operand it is called Post-   
+ For Example,
+     var++ or var--;
+ 
+ Pre-increment/Pre-decrement:
+ ----------------------------
+ When the operator is placed before an operand (++expr, --expr), the variable will be incremented or decremented by 1 in the memory, and then the new value is used in the expression in which it appears.
+ For Example,
+       int a = 25;
+       System.out.println(++a); //26
+       System.out.println(--a); //25
+       
+Post-increment/Post-decrement:
+------------------------------
+ When the operator is placed after an operand (expr++, expr--), the old value of the variable will be used in the expression where it appears and then the variable will be incremented or decremented by 1 in the memory.
+ For Example,
+       int b= 25;
+       System.out.println(b++); //25
+       System.out.println(b--); //26
+ 
+      
+3.Relational Operators:
+=======================
+--> Relational operators are binary operators (operates on 2 operands) and compare the values of the operands.
+--> The output of the expression is either true or false.
+
+ > --> Opr1 > Opr2
+       Opr1 is greater than Opr2
+       
+ >= --> Opr1 >= Opr2 
+        Opr1 is greater than or equal to Opr2      
+       
+ < --> Opr1 < Opr2
+       Opr1 is less than Opr2   
+       
+ <= --> Opr1 <= Opr2
+        Opr1 is less than or equal to Opr2
+ 
+ == --> Opr1 == Opr2
+        Opr1 is equal to Opr2 
+        
+ != --> Opr1 != Opr2 
+        Opr1 is not equals to Opr2                      
+ 
+    
+4.Logical Operators:
+====================
+--> Logical operators have two boolean operands that yield a boolean result.
+
+ && -> logical AND
+ 
+ & -> bitwise logical AND
+ 
+ || -> logical OR
+ 
+ | -> bitwise logical inclusive OR
+ 
+ ^ -> bitwise logical exclusive OR
+ 
+ ?: -> Ternary Operator
+ 
+Truth table for && (logical AND) and &(bitwise logical AND):
+------------------------------------------------------------
+----------------------------
+ Opr1      Opr2       Result
+----------------------------
+true       true        true 
+true       false       false 
+false      true        false
+false      false       false
+-----------------------------
+
+--> && operator supports SHORT-CIRCUIT EVALUATIONS, but & operator doesn't.
+
+false && true = false;
+false && false = false;
+
+--> If the first operand to && operator evaluates to false, the result can never be true, hence && does not evaluate the second operand.
+
+--> But & operator evaluates both the operands before returning an answer.
+
+  
+Truth table for || (logical OR) and |(bitwise logical -inclusive OR):
+---------------------------------------------------------------------- 
+----------------------------
+ Opr1      Opr2       Result
+----------------------------
+true       true        true 
+true       false       true  
+false      true        true 
+false      false       false
+----------------------------- 
+ 
+--> || Operator supports SHORT-CIRCUIT EVALUATIONS, but | operator doesn't.
+
+--> If the first operand to || operator evaluates to true, the result can never be false, hence || does not evaluate the second operand.
+
+--> But | operand evaluates both the operands before returning answer.
+
+
+Truth table for ^ (bitwise logical exclusive OR):
+-------------------------------------------------
+----------------------------
+ Opr1      Opr2       Result
+----------------------------
+true       true        false 
+true       false       true  
+false      true        true 
+false      false       false
+----------------------------- 
+
+--> The result of a bitwise logical exclusive OR operation is true, if and only if one operand is true and the other is false.
+
+--> Note that both operands must always be evaluated in order to calculate the result of a bitwise logical exclusive OR.  
+
+
+5.Assignment Operators:
+=======================
+
+ = -> Opr1 = Opr2
+      Assigns value of Opr2 to Opr1
+      
+ += -> Opr1 += Opr2                           
+    -> Opr1 = Opr1 + Opr2;
+       Assigns result of Opr1 + Opr2 to Opr1
+       
+ -= -> Opr1 -= Opr2
+    -> Opr1 = Opr1 - Opr2;
+       Assign result of Opr1 - Opr2 to Opr1
+       
+ *= -> Opr1 *= Opr2
+    -> Opr1 = Opr1 * Opr2;
+       Assign result of Opr1 * Opr2 to Opr1
+       
+ /= -> Opr1 /= Opr2
+    -> Opr1 = Opr1 / Opr2;
+       Assign result of Opr1 / Opr2 to Opr1
+       
+ %= -> Opr1 %= Opr2
+    -> Opr1 = Opr1 % Opr2;
+       Assign result of Opr1 % Opr2 to Opr1 
+       
+
+Operator Precedence And Associativity:
+======================================
+------------------------------------------------------------------------------------
+Operators                    |Description                            |Associativity|
+------------------------------------------------------------------------------------
+expr++ expr--                |Postfix                                |left to right|
+------------------------------------------------------------------------------------
+++expr --expr +expr -expr !  |Prefix, unary, logical NOT             |right to left|               
+------------------------------------------------------------------------------------
+* / %                        |multiplication, division, modulus      |left to right|
+------------------------------------------------------------------------------------
++ -                          |Addition / Concatenation, Subtraction  |left to right| 
+------------------------------------------------------------------------------------
+< > <= >=                    |Relational                             |left to right| 
+------------------------------------------------------------------------------------
+== !=                        |Equality                               |left to right| 
+------------------------------------------------------------------------------------
+&                            |bitwise AND                            |left to right|
+------------------------------------------------------------------------------------
+^                            |bitwise exclusive OR                   |left to right|                         
+------------------------------------------------------------------------------------
+|                            |bitwise inclusive OR                   |left to right|                              
+------------------------------------------------------------------------------------
+&&                           |logical AND                            |left to right|   
+------------------------------------------------------------------------------------
+||                           |logical OR                             |left to right|                
+------------------------------------------------------------------------------------
+?:                           |Ternary Operator                       |right to left|  
+------------------------------------------------------------------------------------
+= += -= *= /= %=             |Assignment                             |right to left|               
+------------------------------------------------------------------------------------
+
+For Example,
+
+1. 10-5-5
+
+ans:
+----
++ - in the 4th position in the Operator precedence and Associativity is left to right.
+
+1.left to right:
+----------------
+we have to put brackets from left to right
+
+     = 10 -5 -5 
+     = (10 -5) -5
+     = ((10 -5) -5)
+     = (5 -5)
+     =0
+     
+right to left:
+--------------
+we have to put brackets from right to left
+
+     = 10 -(5 -5) 
+     = (10 -(5 -5))
+     = (10 (-5 + 5))
+     = (10 -0)
+     = 10
+          
+          
+2. int a = 100;
+   a = --a + a++ + a-- + a++;
+   System.out.println("a = " + a);   
+   
+ans:
+----
+Postfix and Prefix in the 1st and 2nd position in the Operator precedence and Associativity for Postfix is left to right and Prefix is right to left.
+
+       a = --a + a++ + a-- + a++;
+         = --a + (a++) + (a--) + (a++);
+         = (--a) + (a++) + (a--) + (a++);
+         = ((--a) + (a++)) + (a--)) + (a++);
+           ------------------------   -----
+                   Left_Side          Right_Side
+         = ((99) + (99)) + (100)) + (99);
+         = (198 + 100) + (99);
+         = (298 + 99) + 99;
+       a = 397;
+       
+
+3. int a = 1;
+   a = -a-- + a++ / -a-- * --a;
+   System.out.println("a = " + a);
+   
+ans:
+----
+       
+       a = -a-- + a++ / -a-- * --a;
+         = -(a--) + (a++) / -(a--) * --a;
+         = -(a--) + ((a++) / (-(a--)) * (--a));
+           ------   --------------------------
+             L                 R
+         =  (-1)  + ((0) / (-1)) * (0);
+         =  -1    + (0 * (-1));
+         =  -1    + (0)
+      a  =  -1;
+      
+
+
+
+                            
