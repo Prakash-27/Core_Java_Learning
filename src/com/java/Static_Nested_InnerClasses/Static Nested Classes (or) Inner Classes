@@ -1,0 +1,94 @@
+Static nested classes:
+----------------------
+1.Static nested class
+2.Static nested interface
+
+
+Static nested classes:
+----------------------
+Static Nested Class - A static class created within class.
+
+Static Nested Interface - An interfaces of Outer and Inner is created within class, And implements the Outer and Inner Interface with New class to call the Inner Interface inside Method in Implemented class.
+
+
+Static nested class:
+====================
+Nested Class:
+-------------
+
+--> A static class i.e. created inside a class is called static nested class in java. It cannot access non-static data members and methods. It can be accessed by outer class name.
+
+--> It can access static data members of outer class including private.
+
+--> Static nested class cannot access non-static (instance) data member or method.
+
+
+Basic Code for Nested Class:
+----------------------------
+class TestOuter1 {
+
+static int data = 30;
+
+static class Inner{
+
+void msg() {
+
+System.out.println("data is " + data);
+
+}
+
+public static void main(String args[]) {
+
+TestOuter1.Inner obj = new TestOuter1.Inner();
+
+obj.msg();
+
+}
+
+} 
+
+
+Nested Interface:
+-----------------
+--> An Interface i.e declared within another interface or class is known as nested Interface.
+
+--> The nested interfaces are used to group related interfaces so that they can be easy to maintain.
+
+--> The nested interface must be referred by the outer interface or class. It can't be accessed directly.
+
+Points to remember:
+-------------------
+--> Nested interface must be public if it is declared inside the interface but it can have any access modifier if declared within the class.
+
+--> Nested interfaces are declared static implicitely.
+
+
+Basic Code for Nested Interface:
+--------------------------------
+interface Showable {
+
+void show();
+
+interface Message {
+
+void msg();
+
+}
+
+}
+
+class TestNestedInterface1 implements Showable.Message {
+
+public void msg() {
+
+System.out.println("Hello nested interface");
+
+}
+
+Showable.Message message = new TestNestedInterface1(); //upcasting here
+
+message.msg();
+
+}
+
+}

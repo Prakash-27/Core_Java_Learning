@@ -60,7 +60,7 @@ public class Reverse_StringExample {
 		ListIterator<Character> iterator = list.listIterator();
 
 		while (iterator.hasNext()) {
-			//Here we have to remove println to print to achieve the Output in Single line. 
+			// Here we have to remove println to print to achieve the Output in Single line.
 			System.out.print(iterator.next());
 		}
 
